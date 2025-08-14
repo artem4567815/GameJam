@@ -11,7 +11,7 @@ public class PlayerShooting : MonoBehaviour
     public PlayerInventory inventory;
     private BulletData bulletSettings;
 
-    public float nextFireTime = 0f;
+    private float nextFireTime = 0f;
 
 
     void Update()
@@ -29,7 +29,7 @@ public class PlayerShooting : MonoBehaviour
 
         if (Input.GetMouseButton(0))
         {
-            if (Time.time >= nextFireTime)
+            if (Time.time > nextFireTime)
             {
                 int ammo = inventory.SetAmmo();
                 if (ammo > 0 || ammo == -1)

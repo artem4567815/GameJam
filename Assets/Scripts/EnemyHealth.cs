@@ -1,9 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
+    public Action<int, int> OnHealthChanged;
     public int maxHealth = 100;
     public int currentHealth;
     public WeaponSlot slot;
@@ -15,7 +17,8 @@ public class EnemyHealth : MonoBehaviour
 
     void Start()
     {
-        currentHealth = maxHealth;
+    currentHealth = maxHealth;
+    OnHealthChanged?.Invoke(currentHealth, maxHealth);
 
         gun = slot.weaponPrefab;
         if (gun == null)
@@ -48,7 +51,8 @@ public class EnemyHealth : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        Debug.Log(gameObject.name + " ������� ����: " + damage + " | HP: " + currentHealth);
+        Debug.Log(gameObject.name + " получил урон: " + damage + " | HP: " + currentHealth);
+        OnHealthChanged?.Invoke(currentHealth, maxHealth);
 
         if (currentHealth <= 0)
         {
@@ -58,7 +62,8 @@ public class EnemyHealth : MonoBehaviour
 
     void Die()
     {
-        Destroy(gameObject);
+    Destroy(gameObject);
+    OnHealthChanged?.Invoke(0, maxHealth);
         int slotIndex = inventory.GetSlotIndex();
         if (slotIndex == 0) 
         {
@@ -71,4 +76,6 @@ public class EnemyHealth : MonoBehaviour
             manager.UpdateWeaponSlot(slotIndex, slot);
         }
     }
+    public int MaxHealth => maxHealth;
+    public int CurrentHealth => currentHealth;
 }

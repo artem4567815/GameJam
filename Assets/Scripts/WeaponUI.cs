@@ -18,7 +18,6 @@ public class WeaponUI : MonoBehaviour
         for (int i = 0; i < weaponIcons.Length; i++)
         {
             weaponManager.EquipWeaponFromSlot(selectedIndex);
-            weaponManager.shooting.nextFireTime = weapons[selectedIndex].bulletSettings.fireRate;
 
             if (weapons[i].icon != null)
             {
