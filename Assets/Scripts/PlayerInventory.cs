@@ -19,10 +19,9 @@ public class PlayerInventory : MonoBehaviour
         {
             GameObject data = weaponManager.weaponSlots[i].weaponPrefab;
             Weapon weaponData = data.GetComponent<Weapon>();
-            weaponSlots[i] = weaponData.data;
+            weaponSlots[i] = new WeaponData(weaponData.data);
         }
         weaponUI.UpdateWeaponSlots(weaponSlots, currentWeaponIndex);
-        Debug.Log(weaponSlots);
     }
 
     private void Update()
@@ -34,6 +33,7 @@ public class PlayerInventory : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha1)) SetWeapon(0);
         if (Input.GetKeyDown(KeyCode.Alpha2)) SetWeapon(1);
         if (Input.GetKeyDown(KeyCode.Alpha3)) SetWeapon(2);
+        if (Input.GetKeyDown(KeyCode.Alpha4)) SetWeapon(3);
 
         if (weaponSlots[currentWeaponIndex].currentAmmo <= 0 && weaponSlots[currentWeaponIndex].currentAmmo != -1)
         {
@@ -70,6 +70,7 @@ public class PlayerInventory : MonoBehaviour
         if (weaponSlots[currentWeaponIndex].currentAmmo > 0)
         {
             weaponSlots[currentWeaponIndex].currentAmmo--;
+            Debug.Log(weaponSlots[currentWeaponIndex].currentAmmo);
             weaponUI.UpdateAmmo(weaponSlots[currentWeaponIndex]);
         }
     }
@@ -90,19 +91,18 @@ public class PlayerInventory : MonoBehaviour
         }
 
         WeaponData currentWeapon = weaponSlots[currentWeaponIndex];
-        Debug.Log(currentWeapon.weaponName);
-        Debug.Log(newWeapon.weaponName);
-
 
         if (currentWeapon == null || currentWeapon.weaponName == "default")
         {
-            weaponSlots[currentWeaponIndex] = newWeapon;
+            weaponSlots[currentWeaponIndex] = new WeaponData(newWeapon);
             weaponUI.UpdateWeaponSlots(weaponSlots, currentWeaponIndex);
             return true;
         }
         else if (currentWeapon.weaponName == newWeapon.weaponName)
         {
-            currentWeapon.currentAmmo += newWeapon.currentAmmo;
+            int add = newWeapon.startAmmo == -1 ? 0 : newWeapon.startAmmo;
+            if (currentWeapon.currentAmmo != -1)
+                currentWeapon.currentAmmo += add;
             weaponUI.UpdateAmmo(currentWeapon);
             return false;
         }

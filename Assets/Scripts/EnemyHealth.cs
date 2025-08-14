@@ -10,7 +10,7 @@ public class EnemyHealth : MonoBehaviour
 
     private PlayerInventory inventory;
     private WeaponManager manager;
-    private WeaponData weaponData;
+    private WeaponData weaponData; // данные для дропа
     private GameObject gun;
 
     void Start()
@@ -18,8 +18,20 @@ public class EnemyHealth : MonoBehaviour
         currentHealth = maxHealth;
 
         gun = slot.weaponPrefab;
+        if (gun == null)
+        {
+            Debug.Log("плаки плаки!!!2");
+            return;
+        }
         Weapon weapon = gun.GetComponent<Weapon>();
-        weaponData = weapon.data;
+        if (weapon == null)
+        {
+            Debug.Log("плаки плаки!!!");
+            return;
+        }
+        // Создаём чистую копию данных (WeaponData конструктор сам сбросит currentAmmo в startAmmo)
+        weaponData = new WeaponData(weapon.data);
+
 
         GameObject player = GameObject.FindWithTag("Player");
         if (player != null)
@@ -29,14 +41,14 @@ public class EnemyHealth : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("����� �� ������ � �����!");
+            Debug.LogWarning("Player не найден в сцене!");
         }
     }
 
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        Debug.Log(gameObject.name + " ������� ����: " + damage + " | HP: " + currentHealth);
+        Debug.Log(gameObject.name + " ������� ����: " + damage + " | HP: " + currentHealth);
 
         if (currentHealth <= 0)
         {
@@ -53,8 +65,7 @@ public class EnemyHealth : MonoBehaviour
             return;
         }
 
-        bool changeWeapon;
-        changeWeapon = inventory.AddWeapon(weaponData);
+        bool changeWeapon = inventory.AddWeapon(weaponData);
         if (changeWeapon)
         {
             manager.UpdateWeaponSlot(slotIndex, slot);

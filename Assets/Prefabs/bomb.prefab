@@ -133,4 +133,5 @@ MonoBehaviour:
     weaponName: bomb
     icon: {fileID: 21300000, guid: f78563e5aff63e0439800e466109b79f, type: 3}
     currentAmmo: 3
+    startAmmo: 3
     bulletSettings: {fileID: 11400000, guid: f72ea0230346c614f837c2c1aafb9aaf, type: 2}

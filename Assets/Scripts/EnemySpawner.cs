@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public GameObject[] enemyPrefabs;  // ������ �������� ������
+    public GameObject[] enemyPrefabs;  // ������ �������� ������
     public Transform player;
     public float spawnRadius = 10f;
     public float spawnInterval = 2f;
     public int maxEnemies = 10;
+    public float minDistance = 4f; // Минимальная дистанция до игрока
 
     private float timer;
 
@@ -27,11 +28,15 @@ public class EnemySpawner : MonoBehaviour
     {
         if (enemyPrefabs.Length == 0)
         {
-            Debug.LogWarning("������ enemyPrefabs ����!");
             return;
         }
 
-        Vector2 spawnPos = (Vector2)player.position + Random.insideUnitCircle * spawnRadius;
+        // Генерируем точку на кольце между minDistance и spawnRadius одной попыткой
+        float angle = Random.Range(0f, Mathf.PI * 2f);
+        float distance = Random.Range(minDistance, spawnRadius);
+        Vector2 offset = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)) * distance;
+        Vector2 spawnPos = (Vector2)player.position + offset;
+
         int randomIndex = Random.Range(0, enemyPrefabs.Length);
         GameObject enemyToSpawn = enemyPrefabs[randomIndex];
 

@@ -102,6 +102,7 @@ MonoBehaviour:
     weaponName: machine gun
     icon: {fileID: 21300000, guid: b8f31a83d7340604898cb2d81c2c1eb5, type: 3}
     currentAmmo: 100
+    startAmmo: 100
     bulletSettings: {fileID: 11400000, guid: cf89892480d7b9a4dbf4204f4d33e6b6, type: 2}
 --- !u!1 &8664387244136119537
 GameObject:

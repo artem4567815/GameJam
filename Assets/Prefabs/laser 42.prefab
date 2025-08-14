@@ -133,4 +133,5 @@ MonoBehaviour:
     weaponName: laser 42
     icon: {fileID: 21300000, guid: 145db614f1b83a24693d0dc47d65b6fb, type: 3}
     currentAmmo: 2500
+    startAmmo: 2500
     bulletSettings: {fileID: 11400000, guid: cfe11aa4898a202489d162b5f0ca5d2e, type: 2}

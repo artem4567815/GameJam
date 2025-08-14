@@ -102,6 +102,7 @@ MonoBehaviour:
     weaponName: double bow
     icon: {fileID: 21300000, guid: 624aa20c9948d984bb24cb4e9c6efb31, type: 3}
     currentAmmo: 25
+    startAmmo: 25
     bulletSettings: {fileID: 11400000, guid: f2391de9767f30749bae759989fa5737, type: 2}
 --- !u!1 &2751520421520634960
 GameObject:

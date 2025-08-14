@@ -133,4 +133,5 @@ MonoBehaviour:
     weaponName: default
     icon: {fileID: 1130110725, guid: 66d6f69d4b3106840ba244422b90b4fc, type: 3}
     currentAmmo: -1
+    startAmmo: -1
     bulletSettings: {fileID: 11400000, guid: 10b69bbcea7bc5c4a9e0a388425deec1, type: 2}

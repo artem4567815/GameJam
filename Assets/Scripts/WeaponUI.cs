@@ -18,6 +18,7 @@ public class WeaponUI : MonoBehaviour
         for (int i = 0; i < weaponIcons.Length; i++)
         {
             weaponManager.EquipWeaponFromSlot(selectedIndex);
+            weaponManager.shooting.nextFireTime = weapons[selectedIndex].bulletSettings.fireRate;
 
             if (weapons[i].icon != null)
             {
@@ -26,7 +27,7 @@ public class WeaponUI : MonoBehaviour
                 Color iconColor = weaponIcons[i].color;
                 iconColor.a = 1f;
                 weaponIcons[i].color = iconColor;
-                
+
             }
             else
             {
@@ -41,7 +42,6 @@ public class WeaponUI : MonoBehaviour
 
         if (weapons[selectedIndex] != null)
         {
-            Debug.Log(weapons[selectedIndex].currentAmmo);
             if (weapons[selectedIndex].currentAmmo == -1)
             {
                 ammoText.text = $"∞";

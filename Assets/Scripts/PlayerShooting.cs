@@ -11,7 +11,7 @@ public class PlayerShooting : MonoBehaviour
     public PlayerInventory inventory;
     private BulletData bulletSettings;
 
-    private float nextFireTime = -Mathf.Infinity;
+    public float nextFireTime = 0f;
 
 
     void Update()
@@ -27,12 +27,12 @@ public class PlayerShooting : MonoBehaviour
             bulletSettings = weapon.GetBulletData();
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButton(0))
         {
             if (Time.time >= nextFireTime)
             {
                 int ammo = inventory.SetAmmo();
-                if (ammo > 0 || ammo == -1) 
+                if (ammo > 0 || ammo == -1)
                 {
                     Shoot();
                     inventory.UpdateAmmo();
@@ -58,7 +58,7 @@ public class PlayerShooting : MonoBehaviour
             }
             else if (bulletSettings.accuracy > 0f)
             {
-                float maxAngleOffset = bulletSettings.accuracy * 1.8f; // 100% = ~180°
+                float maxAngleOffset = bulletSettings.accuracy * 1.8f; // 100% = ~180ï¿½
                 float angleOffset = Random.Range(-maxAngleOffset, maxAngleOffset);
                 Quaternion rotation = Quaternion.Euler(0, 0, angleOffset);
                 finalDirection = rotation * baseDirection.normalized;

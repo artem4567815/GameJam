@@ -102,6 +102,7 @@ MonoBehaviour:
     weaponName: rifle-sniper
     icon: {fileID: 21300000, guid: bc7f11043c24c734aaec48b030c7222a, type: 3}
     currentAmmo: 20
+    startAmmo: 20
     bulletSettings: {fileID: 11400000, guid: bd7beb7161a79c8458cb144227d21a28, type: 2}
 --- !u!1 &4878962105763376824
 GameObject:

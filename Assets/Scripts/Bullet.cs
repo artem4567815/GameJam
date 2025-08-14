@@ -33,21 +33,14 @@ public class Bullet : MonoBehaviour
             rb.gravityScale = 0;
             rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
         }
-    }
-
-    void Update()
-    {
-        transform.Translate(direction * speed * Time.deltaTime, Space.World);
-
-        if (Vector3.Distance(startPosition, transform.position) >= fireRange)
-        {
-            Destroy(gameObject);
-        }
+        // Устанавливаем мгновенно скорость через Rigidbody чтобы не использовать Translate
+        rb.velocity = direction * speed;
     }
 
     void FixedUpdate()
     {
-        rb.MovePosition(rb.position + direction * speed * Time.fixedDeltaTime);
+        // Поддерживаем скорость (на случай если кто-то внешне изменит rb.velocity)
+        rb.velocity = direction * speed;
 
         if (Vector3.Distance(startPosition, transform.position) >= fireRange)
         {
@@ -67,7 +60,4 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
-
-
 }

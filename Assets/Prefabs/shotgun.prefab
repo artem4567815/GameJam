@@ -102,6 +102,7 @@ MonoBehaviour:
     weaponName: shotgun
     icon: {fileID: 21300000, guid: 8c5bc377d93652b47ab94d14ab13b1d4, type: 3}
     currentAmmo: 10
+    startAmmo: 10
     bulletSettings: {fileID: 11400000, guid: 7a6795871dab8f74198d908eeeb3504d, type: 2}
 --- !u!1 &5411726216820992808
 GameObject:

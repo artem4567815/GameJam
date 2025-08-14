@@ -133,4 +133,5 @@ MonoBehaviour:
     weaponName: rifle awk
     icon: {fileID: 21300000, guid: 2a697cd61323e4c48a56f9f83315f935, type: 3}
     currentAmmo: 30
+    startAmmo: 30
     bulletSettings: {fileID: 11400000, guid: dd511eee548206b49938a8b01a177af2, type: 2}

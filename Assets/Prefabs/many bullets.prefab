@@ -102,6 +102,7 @@ MonoBehaviour:
     weaponName: many bullets
     icon: {fileID: 21300000, guid: 7f25239329bb7884595919779d8c066c, type: 3}
     currentAmmo: 15
+    startAmmo: 15
     bulletSettings: {fileID: 11400000, guid: 16222e132017449409919cb4ec51b141, type: 2}
 --- !u!1 &5888206085402866713
 GameObject:

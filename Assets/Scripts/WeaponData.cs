@@ -7,8 +7,20 @@ public class WeaponData
 {
     public string weaponName;
     public Sprite icon;
-    public int currentAmmo;
-    public BulletData bulletSettings;
+    [Tooltip("Текущее количество патронов (меняется в игре)")] public int currentAmmo;
+    [Tooltip("Стартовое количество патронов из префаба")] public int startAmmo;
+    public BulletData bulletSettings; // Конфиг (ScriptableObject)
+
+    public WeaponData() { }
+
+    public WeaponData(WeaponData other)
+    {
+        weaponName = other.weaponName;
+        icon = other.icon;
+        startAmmo = other.startAmmo;
+        currentAmmo = other.startAmmo;
+        bulletSettings = other.bulletSettings != null ? ScriptableObject.Instantiate(other.bulletSettings) : null;
+    }
 
     public static WeaponData Default()
     {
@@ -16,7 +28,9 @@ public class WeaponData
         {
             weaponName = "default",
             icon = Resources.Load<Sprite>("3"),
-            currentAmmo = -1
+            currentAmmo = -1,
+            startAmmo = -1,
+            bulletSettings = null
         };
     }
 }

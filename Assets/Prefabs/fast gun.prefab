@@ -133,4 +133,5 @@ MonoBehaviour:
     weaponName: fast gun
     icon: {fileID: 21300000, guid: ceb3a6c1c2b6e734ea37e775974ecef3, type: 3}
     currentAmmo: 30
+    startAmmo: 30
     bulletSettings: {fileID: 11400000, guid: 517ab84ebe9d7fc4994ccb9081ac52e0, type: 2}

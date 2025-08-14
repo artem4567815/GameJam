@@ -12,7 +12,7 @@ public class WeaponSlot
 public class WeaponManager : MonoBehaviour
 {
 
-    [Header("Настройки")]
+    [Header("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ")]
     public Transform weaponHolder;
     public WeaponSlot[] weaponSlots; 
 
