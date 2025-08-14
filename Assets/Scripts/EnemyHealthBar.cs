@@ -18,7 +18,7 @@ public class EnemyHealthBar : MonoBehaviour
         }
     }
 
-    public void UpdateBar(int current, int max)
+    public void UpdateBar(float current, float max)
     {
         if (fillImage != null)
         {

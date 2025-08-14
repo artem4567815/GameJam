@@ -75,6 +75,7 @@ MonoBehaviour:
   damage: 10
   attackDelay: 5
   attackDistance: 2
+  attackPrepareDelay: 0.5
 --- !u!114 &4399721461566412968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -400,7 +401,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -1886012076, guid: 0c1e734fa85636743af3bc22c6d99ba8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

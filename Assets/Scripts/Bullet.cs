@@ -6,7 +6,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     [HideInInspector] public float speed;
-    [HideInInspector] public int damage;
+    [HideInInspector] public float damage;
     [HideInInspector] public float fireRate;
     [HideInInspector] public float fireRange;
     [HideInInspector] public float accuracy;
@@ -48,7 +48,7 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         EnemyHealth enemy = collision.gameObject.GetComponent<EnemyHealth>();
         if (enemy != null)

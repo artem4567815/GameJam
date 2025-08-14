@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-    public Action<int, int> OnHealthChanged;
-    public int maxHealth = 100;
-    public int currentHealth;
+    public Action<float, float> OnHealthChanged;
+    public float maxHealth = 100;
+    public float currentHealth;
     public WeaponSlot slot;
 
     private PlayerInventory inventory;
@@ -48,7 +48,7 @@ public class EnemyHealth : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         currentHealth -= damage;
         Debug.Log(gameObject.name + " получил урон: " + damage + " | HP: " + currentHealth);
@@ -76,6 +76,6 @@ public class EnemyHealth : MonoBehaviour
             manager.UpdateWeaponSlot(slotIndex, slot);
         }
     }
-    public int MaxHealth => maxHealth;
-    public int CurrentHealth => currentHealth;
+    public float MaxHealth => maxHealth;
+    public float CurrentHealth => currentHealth;
 }

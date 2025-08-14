@@ -27,6 +27,19 @@ public class WeaponUI : MonoBehaviour
                 iconColor.a = 1f;
                 weaponIcons[i].color = iconColor;
 
+                // Автоматическая корректировка размера и aspect ratio
+                float maxSize = 96; // например, 64x64 пикселя
+                float w = weapons[i].icon.rect.width;
+                float h = weapons[i].icon.rect.height;
+                float aspect = w / h;
+                if (aspect >= 1f)
+                {
+                    weaponIcons[i].rectTransform.sizeDelta = new Vector2(maxSize, maxSize / aspect);
+                }
+                else
+                {
+                    weaponIcons[i].rectTransform.sizeDelta = new Vector2(maxSize * aspect, maxSize);
+                }
             }
             else
             {
