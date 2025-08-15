@@ -8,6 +8,7 @@ using UnityEngine.Events;
 public class UniqueKillCounter : MonoBehaviour
 {
     public static event Action<int> OnUniqueKillTargetReached;
+    public static event Action<int> OnUniqueKillCountChanged;
     [Header("Inspector event when unique target reached")]
     public UnityEvent onUniqueTargetReached;
 
@@ -32,6 +33,7 @@ public class UniqueKillCounter : MonoBehaviour
         string baseName = NormalizeName(runtimeName);
         if (uniqueNames.Add(baseName))
         {
+            try { OnUniqueKillCountChanged?.Invoke(uniqueNames.Count); } catch (Exception ex) { Debug.LogException(ex); }
             if (!fired && uniqueNames.Count >= targetUniqueCount)
             {
                 fired = true;
