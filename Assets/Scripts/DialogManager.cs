@@ -23,17 +23,21 @@ public class DialogManager : MonoBehaviour
 
     private HashSet<string> buffedRaces = new HashSet<string>();
 
+    [Header("Final dialog after 28 unique kills")]
+    public string[] finalDialogPhrases;
+    private bool finalDialogShown = false;
+
     void Start()
     {
         StartDialog();
-        EnemyHealth.OnEnemyKilled += StartSecondDialog;
-        PlayerHealth.OnPlayerDeath += DieDialog;
+    EnemyHealth.OnEnemyKilled += StartSecondDialog;
+    PlayerHealth.OnPlayerDeath += DieDialog;
     }
 
     void OnDestroy()
     {
-        EnemyHealth.OnEnemyKilled -= StartSecondDialog;
-        PlayerHealth.OnPlayerDeath -= DieDialog;
+    EnemyHealth.OnEnemyKilled -= StartSecondDialog;
+    PlayerHealth.OnPlayerDeath -= DieDialog;
     }
 
     void StartDialog()
@@ -96,10 +100,7 @@ public class DialogManager : MonoBehaviour
     void ShowPhrase()
     {
         dialogText.text = phrases[index];
-        if (index != 1)
-            dialogText.rectTransform.anchoredPosition = new Vector2(800, 0);
-        else
-            dialogText.rectTransform.anchoredPosition = new Vector2(-300, 0);
+        dialogText.rectTransform.anchoredPosition = new Vector2(-300, 0);
     }
 
     void NextPhrase()
@@ -119,6 +120,25 @@ public class DialogManager : MonoBehaviour
     {
         dialogPanel.SetActive(false);
         Time.timeScale = 1f;
-        nextButton.onClick.RemoveListener(NextPhrase);
+        //nextButton.onClick.RemoveListener(NextPhrase);
+    }
+
+    private void OnUniqueMilestoneReached(int count)
+    {
+        if (finalDialogShown) return;
+        if (finalDialogPhrases == null || finalDialogPhrases.Length == 0) return;
+
+        dialogPanel.SetActive(true);
+        index = 0;
+        phrases = finalDialogPhrases;
+        Time.timeScale = 0f;
+        ShowPhrase();
+        finalDialogShown = true;
+    }
+
+    // Public method to start the final dialog; can be assigned to UnityEvent in inspector
+    public void StartFinalDialog()
+    {
+        OnUniqueMilestoneReached(0);
     }
 }

@@ -28,8 +28,8 @@ public class PlayerBuffs : MonoBehaviour
     {
         if (!buffedRaces.Contains(enemyName))
         {
-            healthMultiplier += healthMultiplier * 0.075f;
-            damageMultiplier += damageMultiplier * 0.05f;
+            healthMultiplier += healthMultiplier * 0.1f;
+            damageMultiplier += damageMultiplier * 0.15f;
             speedMultiplier += speedMultiplier * 0.03f;
             maxAmmoMultiplier += maxAmmoMultiplier * 0.03f;
             buffedRaces.Add(enemyName);

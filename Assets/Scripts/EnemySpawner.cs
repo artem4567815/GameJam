@@ -64,7 +64,6 @@ public class EnemySpawner : MonoBehaviour
             int maxCount = (enemyCounts != null && i < enemyCounts.Length) ? enemyCounts[i] : 1;
             for (int j = 0; j < maxCount; j++)
             {
-                Debug.Log(1);
                 SpawnEnemy(i);
             }
         }

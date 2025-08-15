@@ -89,7 +89,6 @@ public class PlayerInventory : MonoBehaviour
         if (weaponSlots[currentWeaponIndex].currentAmmo > 0)
         {
             weaponSlots[currentWeaponIndex].currentAmmo--;
-            Debug.Log(weaponSlots[currentWeaponIndex].currentAmmo);
             weaponUI.UpdateAmmo(weaponSlots[currentWeaponIndex]);
         }
     }
@@ -121,7 +120,7 @@ public class PlayerInventory : MonoBehaviour
         {
             int add = newWeapon.startAmmo == -1 ? 0 : newWeapon.startAmmo;
             if (currentWeapon.currentAmmo != -1)
-                currentWeapon.currentAmmo += add / 10;
+                currentWeapon.currentAmmo += add / 4;
             weaponUI.UpdateAmmo(currentWeapon);
             return false;
         }
