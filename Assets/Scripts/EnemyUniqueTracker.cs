@@ -20,8 +20,8 @@ public class EnemyUniqueTracker : MonoBehaviour
     [Tooltip("Optional: list of all enemy prefabs. Used to validate and map runtime names to canonical prefab names.")]
     public List<GameObject> allEnemyPrefabs = new List<GameObject>();
 
-    [Header("Events")]
     public static event Action<int> OnTargetUniqueCountReached; // passes current unique count
+    [Header("Events")]
     public UnityEvent onTargetReached; // assign in inspector
 
     private readonly HashSet<string> uniqueEnemyNames = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
