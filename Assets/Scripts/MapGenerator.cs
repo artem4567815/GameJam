@@ -5,13 +5,22 @@ using UnityEngine.Tilemaps;
 
 public class MapGenerator : MonoBehaviour
 {
-    public Tilemap tilemap;
+    public Tilemap passableTilemap; // РґР»СЏ РїСЂРѕС…РѕРґРёРјС‹С… РѕР±СЉРµРєС‚РѕРІ
+    public Tilemap impassableTilemap; // РґР»СЏ РЅРµРїСЂРѕС…РѕРґРёРјС‹С… РѕР±СЉРµРєС‚РѕРІ
+    public TileBase[] passableTiles;
+    public TileBase[] impassableTiles;
+    public int passableCount = 50;
+    public int impassableCount = 50;
 
-    // Массивы тайлов для каждой зоны (назначай их в инспекторе)
-    public TileBase[] tilesZone1;
-    public TileBase[] tilesZone2;
-    public TileBase[] tilesZone3;
-    public TileBase[] tilesZone4;
+    public TileBase[] ImpassabletilesZone1;
+    public TileBase[] ImpassabletilesZone2;
+    public TileBase[] ImpassabletilesZone3;
+    public TileBase[] ImpassabletilesZone4;
+
+    public TileBase[] PassabletilesZone1;
+    public TileBase[] PassabletilesZone2;
+    public TileBase[] PassabletilesZone3;
+    public TileBase[] PassabletilesZone4;
 
     public int tilesPerZone = 100;
 
@@ -22,15 +31,42 @@ public class MapGenerator : MonoBehaviour
 
     private HashSet<Vector3Int> occupiedTiles = new HashSet<Vector3Int>();
 
-    void Start()
+    void OnEnable()
     {
-        PlaceTilesInZone(zone1, tilesZone1);
-        PlaceTilesInZone(zone2, tilesZone2);
-        PlaceTilesInZone(zone3, tilesZone3);
-        PlaceTilesInZone(zone4, tilesZone4);
+        PlayerHealth.OnPlayerDeath += HandlePlayerDeath;
     }
 
-    void PlaceTilesInZone(Vector2[] triangle, TileBase[] tileSet)
+    void OnDisable()
+    {
+        PlayerHealth.OnPlayerDeath -= HandlePlayerDeath;
+    }
+
+    void HandlePlayerDeath()
+    {
+        passableTilemap.ClearAllTiles();
+        impassableTilemap.ClearAllTiles();
+        occupiedTiles.Clear();
+        Start();
+    }
+
+
+    void Start()
+    {
+        PlaceTilesInZone(zone1, PassabletilesZone1, passableTilemap);
+        PlaceTilesInZone(zone2, PassabletilesZone2, passableTilemap);
+        PlaceTilesInZone(zone3, PassabletilesZone3, passableTilemap);
+        PlaceTilesInZone(zone4, PassabletilesZone4, passableTilemap);
+        PlaceTilesInZone(zone1, ImpassabletilesZone1, impassableTilemap);
+        PlaceTilesInZone(zone2, ImpassabletilesZone2, impassableTilemap);
+        PlaceTilesInZone(zone3, ImpassabletilesZone3, impassableTilemap);
+        PlaceTilesInZone(zone4, ImpassabletilesZone4, impassableTilemap);
+
+        PlaceRandomObjects(passableTiles, passableCount, passableTilemap);
+        PlaceRandomObjects(impassableTiles, impassableCount, impassableTilemap);
+
+    }
+
+    void PlaceTilesInZone(Vector2[] triangle, TileBase[] tileSet, Tilemap zoneTilemap)
     {
         if (tileSet == null || tileSet.Length == 0)
         {
@@ -47,16 +83,54 @@ public class MapGenerator : MonoBehaviour
             Vector2 point = RandomPointInTriangle(triangle[0], triangle[1], triangle[2]);
             Vector3Int tilePos = new Vector3Int(Mathf.RoundToInt(point.x), Mathf.RoundToInt(point.y), 0);
 
-            if (!occupiedTiles.Contains(tilePos))
+            // РќРµ СЂР°Р·РјРµС‰Р°С‚СЊ С‚Р°Р№Р»С‹ РІ РєРІР°РґСЂР°С‚Рµ x: -20..20, y: -20..20
+            if (Mathf.Abs(tilePos.x) > 20 || Mathf.Abs(tilePos.y) > 20)
             {
-                // Выбираем случайный тайл из набора зоны
-                TileBase tileToPlace = tileSet[Random.Range(0, tileSet.Length)];
+                if (!occupiedTiles.Contains(tilePos))
+                {
+                    TileBase tileToPlace = tileSet[Random.Range(0, tileSet.Length)];
+                    zoneTilemap.SetTile(tilePos, tileToPlace);
+                    occupiedTiles.Add(tilePos);
+                    placedCount++;
+                }
+            }
+            attempts++;
+        }
+    }
 
-                tilemap.SetTile(tilePos, tileToPlace);
-                occupiedTiles.Add(tilePos);
-                placedCount++;
+    void PlaceRandomObjects(TileBase[] prefabs, int count, Tilemap targetTilemap)
+    {
+        int placed = 0;
+        int maxAttempts = count * 10;
+        int attempts = 0;
+        while (placed < count && attempts < maxAttempts)
+        {
+            float x = Random.Range(-250f, 250f);
+            float y = Random.Range(-250f, 250f);
+            Vector3Int tilePos = new Vector3Int(Mathf.RoundToInt(x), Mathf.RoundToInt(y), 0);
+
+            bool allowPlace = true;
+
+            if (count == 2000)
+            {
+                if (Mathf.Abs(tilePos.x) <= 5 && Mathf.Abs(tilePos.y) <= 5)
+                    allowPlace = false;
             }
 
+            if (allowPlace && !occupiedTiles.Contains(tilePos))
+            {
+                TileBase tileToPlace = null;
+                if (prefabs.Length > 0)
+                {
+                    tileToPlace = prefabs[Random.Range(0, prefabs.Length)];
+                }
+                if (tileToPlace != null)
+                {
+                    targetTilemap.SetTile(tilePos, tileToPlace);
+                    occupiedTiles.Add(tilePos);
+                    placed++;
+                }
+            }
             attempts++;
         }
     }

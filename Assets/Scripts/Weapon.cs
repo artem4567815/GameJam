@@ -9,6 +9,14 @@ public class Weapon : MonoBehaviour
 
     private void Awake()
     {
+        float ammoMult = 1f;
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null)
+        {
+            var buffs = player.GetComponent<PlayerBuffs>();
+            if (buffs != null)
+                ammoMult = buffs.maxAmmoMultiplier;
+        }
         if (data != null)
         {
             // Если стартовое значение не задано (0) и это не бесконечные (-1), берем из currentAmmo из инспектора
@@ -19,11 +27,11 @@ public class Weapon : MonoBehaviour
             // Всегда сбрасываем на старт при создании экземпляра оружия
             if (data.startAmmo != -1)
             {
-                data.currentAmmo = data.startAmmo;
+                data.currentAmmo = Mathf.RoundToInt(data.startAmmo * ammoMult);
             }
             else
             {
-                data.currentAmmo = -1; // бесконечные
+                data.currentAmmo = -1;
             }
         }
     }

@@ -14,11 +14,15 @@ public class EnemyHealth : MonoBehaviour
     private WeaponManager manager;
     private WeaponData weaponData; // данные для дропа
     private GameObject gun;
+    public static event System.Action<string> OnEnemyKilled;
+
+    private string race;
 
     void Start()
     {
-    currentHealth = maxHealth;
-    OnHealthChanged?.Invoke(currentHealth, maxHealth);
+        currentHealth = maxHealth;
+        race = gameObject.name;
+        OnHealthChanged?.Invoke(currentHealth, maxHealth);
 
         gun = slot.weaponPrefab;
         if (gun == null)
@@ -62,14 +66,14 @@ public class EnemyHealth : MonoBehaviour
 
     void Die()
     {
-    Destroy(gameObject);
-    OnHealthChanged?.Invoke(0, maxHealth);
+        OnEnemyKilled?.Invoke(gameObject.name);
+        Destroy(gameObject);
+        OnHealthChanged?.Invoke(0, maxHealth);
         int slotIndex = inventory.GetSlotIndex();
         if (slotIndex == 0) 
         {
             return;
         }
-
         bool changeWeapon = inventory.AddWeapon(weaponData);
         if (changeWeapon)
         {

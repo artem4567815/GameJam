@@ -12,6 +12,15 @@ public class PlayerInventory : MonoBehaviour
     public WeaponSlot defaultSlot;
     public WeaponManager weaponManager;
 
+    void OnEnable()
+    {
+        PlayerHealth.OnPlayerDeath += LoseAmmoOnDeath;
+    }
+
+    void OnDisable()
+    {
+        PlayerHealth.OnPlayerDeath -= LoseAmmoOnDeath;
+    }
 
     private void Awake()
     {
@@ -124,7 +133,21 @@ public class PlayerInventory : MonoBehaviour
             weaponSlots[i] = WeaponData.Default();
             weaponUI.UpdateWeaponSlots(weaponSlots, i);
             weaponManager.UpdateWeaponSlot(i, defaultSlot);
-        } 
+        }
     }
 
+    public void LoseAmmoOnDeath()
+    {
+        for (int i = 0; i < weaponSlots.Length; i++)
+        {
+            var weapon = weaponSlots[i];
+            if (weapon != null && weapon.weaponName != "default" && weapon.currentAmmo > 0)
+            {
+                int lost = Mathf.FloorToInt(weapon.currentAmmo * 0.75f);
+                weapon.currentAmmo -= lost;
+                weaponUI.UpdateAmmo(weapon);
+            }
+        }
+    }
+    
 }

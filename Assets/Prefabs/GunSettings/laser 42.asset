@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cc5c69a096e5e14897403cf6080fc4c, type: 3}
   m_Name: laser 42
   m_EditorClassIdentifier: 
-  speed: 200
-  damage: 1
+  speed: 10
+  damage: 1.5
   fireRate: 0.01
   fireRange: 7
   accuracy: 0

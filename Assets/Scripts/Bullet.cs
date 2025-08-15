@@ -53,7 +53,15 @@ public class Bullet : MonoBehaviour
         EnemyHealth enemy = collision.gameObject.GetComponent<EnemyHealth>();
         if (enemy != null)
         {
-            enemy.TakeDamage(damage);
+            float damageMultiplier = 1f;
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            if (player != null)
+            {
+                var buffs = player.GetComponent<PlayerBuffs>();
+                if (buffs != null)
+                    damageMultiplier = buffs.damageMultiplier;
+            }
+            enemy.TakeDamage(damage * damageMultiplier);
         }
         if (collision.gameObject.tag != "Bullet" && collision.gameObject.tag != "Player")
         {

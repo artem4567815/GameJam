@@ -8,23 +8,24 @@ public class Movement : MonoBehaviour
 
     private Rigidbody2D rb;
     private Vector2 movement;
+    private PlayerBuffs buffs;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        buffs = GetComponent<PlayerBuffs>();
     }
 
     void Update()
     {
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
-
         movement = movement.normalized;
-
     }
 
     void FixedUpdate()
     {
-        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+        float speedMult = buffs != null ? buffs.speedMultiplier : 1f;
+        rb.MovePosition(rb.position + movement * moveSpeed * speedMult * Time.fixedDeltaTime);
     }
 }

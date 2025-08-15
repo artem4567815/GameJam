@@ -13,6 +13,42 @@ public class EnemySpawner : MonoBehaviour
 
     private float timer;
 
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, spawnRadius);
+    }
+
+    void OnEnable()
+    {
+        PlayerHealth.OnPlayerDeath += HandlePlayerDeath;
+    }
+
+    void OnDisable()
+    {
+        PlayerHealth.OnPlayerDeath -= HandlePlayerDeath;
+    }
+
+    void HandlePlayerDeath()
+    {
+        foreach (var enemy in GameObject.FindGameObjectsWithTag("Enemy"))
+        {
+            Destroy(enemy);
+        }
+    }
+
+    void Start()
+    {
+        for (int i = 0; i < enemyPrefabs.Length; i++)
+        {
+            int maxCount = (enemyCounts != null && i < enemyCounts.Length) ? enemyCounts[i] : 1;
+            for (int j = 0; j < maxCount; j++)
+            {
+                SpawnEnemy(i);
+            }
+        }
+    }
+
     void Update()
     {
         timer += Time.deltaTime;

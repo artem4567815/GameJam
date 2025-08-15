@@ -13,6 +13,23 @@ public class WeaponUI : MonoBehaviour
     public TMP_Text hpText;
     public WeaponManager weaponManager;
 
+    private float lastCurrentHP = 100f;
+
+    private void OnEnable()
+    {
+        PlayerBuffs.OnMaxHealthChanged += OnMaxHealthChanged;
+    }
+
+    private void OnDisable()
+    {
+        PlayerBuffs.OnMaxHealthChanged -= OnMaxHealthChanged;
+    }
+
+    private void OnMaxHealthChanged(float max)
+    {
+        UpdateHP(lastCurrentHP, max);
+    }
+
     public void UpdateWeaponSlots(WeaponData[] weapons, int selectedIndex)
     {
         for (int i = 0; i < weaponIcons.Length; i++)
@@ -27,8 +44,7 @@ public class WeaponUI : MonoBehaviour
                 iconColor.a = 1f;
                 weaponIcons[i].color = iconColor;
 
-                // Автоматическая корректировка размера и aspect ratio
-                float maxSize = 96; // например, 64x64 пикселя
+                float maxSize = 96;
                 float w = weapons[i].icon.rect.width;
                 float h = weapons[i].icon.rect.height;
                 float aspect = w / h;
@@ -71,8 +87,11 @@ public class WeaponUI : MonoBehaviour
 
     public void UpdateHP(float current, float max)
     {
+        lastCurrentHP = current;
+        int currentInt = Mathf.FloorToInt(current);
+        int maxInt = Mathf.FloorToInt(max);
         hpBar.fillAmount = current / max;
-        hpText.text = $"{current} / {max}";
+        hpText.text = $"{currentInt} / {maxInt}";
     }
 
     public void UpdateAmmo(WeaponData weapon)

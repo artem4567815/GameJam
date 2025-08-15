@@ -79,6 +79,7 @@
     <Compile Include="Assets\2D Top Down Simple Weapon System\Scripts\GunScript.cs" />
     <Compile Include="Assets\2D Top Down Simple Weapon System\Scripts\PlayerMovementScript.cs" />
     <Compile Include="Assets\2D Top Down Simple Weapon System\Scripts\BulletSpawner.cs" />
+    <Compile Include="Assets\Scripts\PlayerBuffs.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
@@ -88,6 +89,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />
     <Compile Include="Assets\Scripts\PlayerInventory.cs" />
     <Compile Include="Assets\Scripts\EnemySpawner.cs" />
+    <Compile Include="Assets\Scripts\DialogManager.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
     <Compile Include="Assets\Scripts\Bullet.cs" />
     <Compile Include="Assets\Scripts\EnemyHealth.cs" />
@@ -130,6 +132,8 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
     <None Include="Assets\Sprites\Gun\Pack 1\License - CC0.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
+    <None Include="Assets\Sprites\World\Pixel Lands Desert Demo\INFO.txt" />
+    <None Include="Assets\Sprites\World\nature free\list.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
     <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Oswald-Bold - OFL.txt" />
     <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Anton OFL.txt" />
@@ -138,6 +142,7 @@
     <None Include="Assets\Sprites\World\PostApocalypse_AssetPack_v1.1.2\LICENSE.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
+    <None Include="Assets\Sprites\World\Free-Cursed-Land-Top-Down-Pixel-Art-Tileset\License.txt" />
     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
@@ -145,14 +150,21 @@
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
+    <None Include="Assets\Sprites\World\nature free\license.txt" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+    <None Include="Assets\Sprites\World\Free-Undead-Tileset-Top-Down-Pixel-Art\readme.txt" />
+    <None Include="Assets\Sprites\World\Pixel Mushroom Pack\License.txt" />
+    <None Include="Assets\Sprites\World\Free-Undead-Tileset-Top-Down-Pixel-Art\License.txt" />
     <None Include="Assets\Sprites\Gun\Pack 2\License - CC0.txt" />
     <None Include="Assets\Sprites\World\mystic_woods_free_2.2\sprites\characters\README.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
+    <None Include="Assets\Sprites\World\Free-Top-Down-Pixel-Art-Cave-Objects\License.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
+    <None Include="Assets\Sprites\World\Free-Top-Down-Pixel-Art-Cave-Objects\readme.txt" />
     <None Include="Assets\Sprites\World\Pixel Crawler - Free Pack\Terms.txt" />
+    <None Include="Assets\Sprites\World\Free-Cursed-Land-Top-Down-Pixel-Art-Tileset\readme.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
     <None Include="Assets\Sprites\World\mystic_woods_free_2.2\read_me.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
