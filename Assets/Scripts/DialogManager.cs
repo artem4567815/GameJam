@@ -19,6 +19,7 @@ public class DialogManager : MonoBehaviour
     public string[] dieDialogPhrases;
 
     private static bool firstEnemyKilled = false;
+    private static bool secondEnemyKilled = false;
 
     private HashSet<string> buffedRaces = new HashSet<string>();
 
@@ -54,6 +55,9 @@ public class DialogManager : MonoBehaviour
 
     void StartSecondDialog(string enemyName)
     {
+        if (secondEnemyKilled)
+            return;
+
         if (!buffedRaces.Contains(enemyName))
         {
             buffedRaces.Add(enemyName);
@@ -65,6 +69,7 @@ public class DialogManager : MonoBehaviour
                 phrases = thirdDialogPhrases;
                 Time.timeScale = 0f;
                 ShowPhrase();
+                secondEnemyKilled = true;
                 return;
             }
             else

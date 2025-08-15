@@ -124,6 +124,7 @@
     <Compile Include="Assets\2D Top Down Simple Weapon System\Scripts\GunObject.cs" />
     <Compile Include="Assets\2D Top Down Simple Weapon System\Scripts\CameraFollowScript.cs" />
     <Compile Include="Assets\Scripts\WeaponData.cs" />
+    <Compile Include="Assets\Scripts\JournalManager.cs" />
     <Compile Include="Assets\Scripts\WeaponUI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
     <Compile Include="Assets\Scripts\UIFollowMouse.cs" />
