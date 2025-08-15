@@ -16,7 +16,6 @@ public class EnemyHealth : MonoBehaviour
     private GameObject gun;
     public static event System.Action<string> OnEnemyKilled;
     public static event System.Action<GameObject> OnEnemyKilledGameObject;
-    //public static event System.Action<EnemyData> OnEnemyKilledData;
 
     private string race;
 
@@ -69,15 +68,6 @@ public class EnemyHealth : MonoBehaviour
     void Die()
     {
         OnEnemyKilled?.Invoke(gameObject.name);
-        /*OnEnemyKilledGameObject?.Invoke(gameObject);
-        // Создаём EnemyData и передаём в event
-        Sprite sprite = null;
-        var spriteRenderer = GetComponent<SpriteRenderer>();
-        if (spriteRenderer != null)
-            sprite = spriteRenderer.sprite;
-        EnemyData data = new EnemyData(gameObject.name, race, maxHealth, currentHealth, sprite);
-        
-        OnEnemyKilledData?.Invoke(data);*/
 
         Destroy(gameObject);
         OnHealthChanged?.Invoke(0, maxHealth);

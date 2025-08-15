@@ -35,12 +35,12 @@ public class JournalManager : MonoBehaviour
     {
         journalPanel.SetActive(false);
         closeButton.onClick.AddListener(CloseJournal);
-        EnemyHealth.OnEnemyKilled += OnEnemyKilled;
+        //EnemyHealth.OnEnemyKilled += OnEnemyKilled;
     }
 
     void OnDestroy()
     {
-        EnemyHealth.OnEnemyKilled -= OnEnemyKilled;
+        //EnemyHealth.OnEnemyKilled -= OnEnemyKilled;
     }
 
     private void OnEnemyKilled(string enemyName)

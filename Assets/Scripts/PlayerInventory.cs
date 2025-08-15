@@ -50,6 +50,16 @@ public class PlayerInventory : MonoBehaviour
             weaponUI.UpdateWeaponSlots(weaponSlots, currentWeaponIndex);
             weaponManager.UpdateWeaponSlot(currentWeaponIndex, defaultSlot);
         }
+
+        if (currentWeaponIndex != 0)
+        {
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                weaponSlots[currentWeaponIndex] = WeaponData.Default();
+                weaponUI.UpdateWeaponSlots(weaponSlots, currentWeaponIndex);
+                weaponManager.UpdateWeaponSlot(currentWeaponIndex, defaultSlot);
+            }
+        }
     }
 
     void NextWeapon()
@@ -111,7 +121,7 @@ public class PlayerInventory : MonoBehaviour
         {
             int add = newWeapon.startAmmo == -1 ? 0 : newWeapon.startAmmo;
             if (currentWeapon.currentAmmo != -1)
-                currentWeapon.currentAmmo += add;
+                currentWeapon.currentAmmo += add / 10;
             weaponUI.UpdateAmmo(currentWeapon);
             return false;
         }

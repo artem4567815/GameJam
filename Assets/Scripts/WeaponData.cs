@@ -9,7 +9,7 @@ public class WeaponData
     public Sprite icon;
     [Tooltip("Текущее количество патронов (меняется в игре)")] public int currentAmmo;
     [Tooltip("Стартовое количество патронов из префаба")] public int startAmmo;
-    public BulletData bulletSettings; // Конфиг (ScriptableObject)
+    public BulletData bulletSettings;
 
     public WeaponData() { }
 
@@ -30,7 +30,7 @@ public class WeaponData
             icon = Resources.Load<Sprite>("3"),
             currentAmmo = -1,
             startAmmo = -1,
-            bulletSettings = null
+            bulletSettings = Resources.Load<BulletData>("defaut rifle")
         };
     }
 }
