@@ -100,7 +100,7 @@ public class DialogManager : MonoBehaviour
     void ShowPhrase()
     {
         dialogText.text = phrases[index];
-        dialogText.rectTransform.anchoredPosition = new Vector2(-300, 0);
+        dialogText.rectTransform.anchoredPosition = new Vector2(-300, 60);
     }
 
     void NextPhrase()
