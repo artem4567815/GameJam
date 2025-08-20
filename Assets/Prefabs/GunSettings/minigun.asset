@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: minigun
   m_EditorClassIdentifier: 
   speed: 15
-  damage: 10
+  damage: 2
   fireRate: 0.01
   fireRange: 8
-  accuracy: 20
+  accuracy: 6.9
   bulletsCount: 3

@@ -132,6 +132,6 @@ MonoBehaviour:
   data:
     weaponName: buble gun
     icon: {fileID: 21300000, guid: 627f8f633f082954080599b1bd792214, type: 3}
-    currentAmmo: 400
-    startAmmo: 400
+    currentAmmo: 300
+    startAmmo: 300
     bulletSettings: {fileID: 11400000, guid: c9f697218af53ab4098bba19f71603e2, type: 2}

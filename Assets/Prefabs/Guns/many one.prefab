@@ -132,6 +132,6 @@ MonoBehaviour:
   data:
     weaponName: many one
     icon: {fileID: 21300000, guid: 6f42340c8145ae540b55e8c575af89ff, type: 3}
-    currentAmmo: 35
-    startAmmo: 35
+    currentAmmo: 25
+    startAmmo: 25
     bulletSettings: {fileID: 11400000, guid: 487e81f5c0cd39f4895d4b63d3a51716, type: 2}

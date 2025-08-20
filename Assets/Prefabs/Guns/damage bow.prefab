@@ -101,8 +101,8 @@ MonoBehaviour:
   data:
     weaponName: damage bow
     icon: {fileID: 21300000, guid: b17f8f1ff8935594285a4941827e6193, type: 3}
-    currentAmmo: 25
-    startAmmo: 25
+    currentAmmo: 30
+    startAmmo: 30
     bulletSettings: {fileID: 11400000, guid: be80d322a6ecf2649b3fb4af38a97e41, type: 2}
 --- !u!1 &1471583161942830595
 GameObject:

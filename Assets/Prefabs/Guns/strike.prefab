@@ -132,6 +132,6 @@ MonoBehaviour:
   data:
     weaponName: strike
     icon: {fileID: 21300000, guid: a078d0858d1712d4eb7d9deadab38d0e, type: 3}
-    currentAmmo: 60
-    startAmmo: 60
+    currentAmmo: 40
+    startAmmo: 40
     bulletSettings: {fileID: 11400000, guid: b5c9dfe31075d7447b81bc59c063c353, type: 2}

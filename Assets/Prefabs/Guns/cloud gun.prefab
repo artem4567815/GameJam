@@ -132,6 +132,6 @@ MonoBehaviour:
   data:
     weaponName: cloud gun
     icon: {fileID: 21300000, guid: 6768aa1e776085840b89bc1112087c7d, type: 3}
-    currentAmmo: 10
-    startAmmo: 10
+    currentAmmo: 8
+    startAmmo: 8
     bulletSettings: {fileID: 11400000, guid: b80d7dd372bcbcf449a96b40b4e4d242, type: 2}

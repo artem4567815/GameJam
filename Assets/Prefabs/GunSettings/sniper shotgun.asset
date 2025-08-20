@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: sniper shotgun
   m_EditorClassIdentifier: 
   speed: 14.5
-  damage: 400
+  damage: 100
   fireRate: 1.3
   fireRange: 7
   accuracy: 10

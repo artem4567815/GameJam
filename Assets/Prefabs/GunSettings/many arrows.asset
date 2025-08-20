@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: many arrows
   m_EditorClassIdentifier: 
   speed: 6
-  damage: 1000
+  damage: 300
   fireRate: 0.9
   fireRange: 13
   accuracy: 7

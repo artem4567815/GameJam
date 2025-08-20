@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: auto sniper
   m_EditorClassIdentifier: 
   speed: 16
-  damage: 2700
-  fireRate: 0.3
+  damage: 1000
+  fireRate: 0.4
   fireRange: 13
   accuracy: 1
   bulletsCount: 1

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: random bomb
   m_EditorClassIdentifier: 
   speed: 1
-  damage: 100000
+  damage: 10000
   fireRate: 4
   fireRange: 5
   accuracy: 100

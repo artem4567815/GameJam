@@ -100,9 +100,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data:
     weaponName: minigun
-    icon: {fileID: 0}
-    currentAmmo: 1500
-    startAmmo: 1500
+    icon: {fileID: 21300000, guid: 87c87303815b1a447a856c9bbea844e0, type: 3}
+    currentAmmo: 2000
+    startAmmo: 2000
     bulletSettings: {fileID: 11400000, guid: f59639c5e4af748458bada692289ac3b, type: 2}
 --- !u!1 &4704845146407673187
 GameObject:

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: buble gun
   m_EditorClassIdentifier: 
   speed: 0.5
-  damage: 30
-  fireRate: 0.05
+  damage: 10
+  fireRate: 0.08
   fireRange: 2
   accuracy: 8.2
   bulletsCount: 5

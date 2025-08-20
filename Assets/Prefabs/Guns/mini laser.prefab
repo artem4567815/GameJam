@@ -132,6 +132,6 @@ MonoBehaviour:
   data:
     weaponName: mini laser
     icon: {fileID: 21300000, guid: 51c4f82c08c4b6149bd8cb8e01e6c81f, type: 3}
-    currentAmmo: 1500
-    startAmmo: 1500
+    currentAmmo: 2000
+    startAmmo: 2000
     bulletSettings: {fileID: 11400000, guid: 8f1a12ba6787e014cb926a4338c6ab61, type: 2}

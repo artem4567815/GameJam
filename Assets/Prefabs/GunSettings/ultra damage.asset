@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ultra damage
   m_EditorClassIdentifier: 
   speed: 10
-  damage: 20000
+  damage: 1000
   fireRate: 5
   fireRange: 12
   accuracy: 0.5

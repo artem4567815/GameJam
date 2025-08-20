@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: strike
   m_EditorClassIdentifier: 
   speed: 10
-  damage: 800
-  fireRate: 0.3
+  damage: 500
+  fireRate: 0.5
   fireRange: 11
   accuracy: 1
   bulletsCount: 1

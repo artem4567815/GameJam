@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: cloud gun
   m_EditorClassIdentifier: 
   speed: 1
-  damage: 400
-  fireRate: 2
+  damage: 150
+  fireRate: 3
   fireRange: 4
   accuracy: 30
-  bulletsCount: 50
+  bulletsCount: 30

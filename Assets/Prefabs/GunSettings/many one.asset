@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: many one
   m_EditorClassIdentifier: 
   speed: 7
-  damage: 100
-  fireRate: 0.7
+  damage: 40
+  fireRate: 0.9
   fireRange: 10
   accuracy: 0
   bulletsCount: 15
